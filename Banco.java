@@ -1,6 +1,6 @@
 package prova2POO;
 import java.util.ArrayList;
-public class Banco {
+public class Banco implements Imprimivel{
 	private ArrayList<ContaBancaria> contasBancarias = new ArrayList<ContaBancaria>();
 	
 	public void inserir(ContaBancaria CB) {
@@ -17,5 +17,16 @@ public class Banco {
 		}
 		throw new IllegalArgumentException("Numero da conta infomada NAO existente");
 	}
-	
+	@Override
+	public void mostrarDados() {
+		/*
+		 * Para cada valor dentro de contasBancarias, ele verifica o tipo que foi instanciado. Se for ContaCorrente, o programa vai colocar pra imprimir os dados da ContaCorrente, caso contrario se for Conta Especial, vai imprimir os dados da ContaEspecial
+		 * */
+		contasBancarias.forEach(val->{if (val instanceof ContaCorrente) {
+			((ContaCorrente)val).mostrarDados();
+		}else if(val instanceof ContaEspecial) {
+			((ContaEspecial)val).mostrarDados();
+		}
+		});
+	}
 }

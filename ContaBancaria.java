@@ -29,10 +29,7 @@ public abstract class ContaBancaria {
 		this.setSaldoConta(this.getSaldoConta() + val);
 	}
 	public void transferir(double val, ContaBancaria CB) {
-		if(val < 0) {									//Se o valor passado for menor que 0, significa que o usuario deseja efetuar um saque na conta de destino
-			CB.sacar(val);
-		}else if(val > 0){								//Se o valor passado for maior que 0, significa que o usuario deseja efetuar um deposito na conta de destino
-			CB.depositar(val);
-		}
+		this.sacar(val);
+		CB.depositar(val);
 	}
 }
