@@ -25,7 +25,7 @@ public class ContaCorrente extends ContaBancaria implements Imprimivel{
 		this.setSaldoConta(this.getSaldoConta() + qtdDescontada);
 	}
 	public void mostrarDados() {
-		System.out.println("RESUMO DA CONTA ESPECIAL");
+		System.out.println("RESUMO DA CONTA CORRENTE");
 		System.out.println("Saldo GERAL atual: " + this.getSaldoConta());
 		System.out.println("Taxa de operacao atual: " + this.getTaxaDeOperacao());
 	}

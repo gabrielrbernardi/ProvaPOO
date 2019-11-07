@@ -22,9 +22,17 @@ public abstract class ContaBancaria {
 	 * METODOS ESPECIFICOS
 	 *************************/
 	public void sacar(double val) {
+		val = Math.abs(val);
 		this.setSaldoConta(this.getSaldoConta() - val);
 	}
 	public void depositar(double val) {
 		this.setSaldoConta(this.getSaldoConta() + val);
+	}
+	public void transferir(double val, ContaBancaria CB) {
+		if(val < 0) {									//Se o valor passado for menor que 0, significa que o usuario deseja efetuar um saque na conta de destino
+			CB.sacar(val);
+		}else if(val > 0){								//Se o valor passado for maior que 0, significa que o usuario deseja efetuar um deposito na conta de destino
+			CB.depositar(val);
+		}
 	}
 }
